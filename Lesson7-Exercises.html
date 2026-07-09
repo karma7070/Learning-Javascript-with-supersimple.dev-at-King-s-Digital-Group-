@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 7 - Exercise</title>
+  </head>
+  <body>
+    <script>
+      const name = "Arthur";
+      /*
+  function greet(name){
+   if(name === undefined){ // alternative being if(!name){
+    console.log('Hi there!');
+   } else{
+      console.log(`Hello ${name}`);
+   }
+    
+  }
+
+  greet(name);
+
+
+//Converts from degrees celsius to degrees fahrenheit and vice versa
+      function convertToFahrenheit(celsius) {
+        const value = celsius;
+
+        const result = (value * 9/5) + 32;
+          
+        console.log(result);
+        return result;
+      }
+
+      function convertToCelsius(fahrenheit){
+        const value = fahrenheit;
+
+        const result = (value - 32) * 5/9;
+
+        console.log(result);
+        return result;
+      }
+
+      convertToFahrenheit(25);
+
+      convertToCelsius(77);
+
+      function convertTemperature(degrees, unit){
+
+        if(unit === 'C'){
+          convertToCelsius(degrees);
+        } 
+        
+            else if(unit === 'F'){
+              convertToFahrenheit(degrees);
+            } 
+      }
+
+      convertTemperature(25, 'F')
+      convertTemperature(77, 'C')
+
+
+  */
+
+      function convertLength(length, from, to) {
+
+        if (from === "km" && to === "miles") {
+          let conv = length / 1.6;
+          result = conv + to;
+
+        } else if (from === "miles" && to === "km") {
+          conv = length * 1.6;
+          result = conv + to;
+
+        } else if (from === to && ((from === 'feet' || from === 'miles' || from === 'km') && (to === 'feet' || to === 'miles' || to === 'km'))  ) {
+          result = length + to;
+
+        } else if (from === "km" && to === "feet") {
+          conv = length * 3281;
+          result = conv + to;
+
+        } else if (from === "miles" && to === "feet") {
+          conv = length * 5280;
+          result = conv + to;
+
+        } else if (from === "feet" && to === "km") {
+          conv = length / 3281;
+          result = conv + to;
+
+        } else if (from === "feet" && to === "miles") {
+          conv = length / 5280;
+          result = conv + to;
+
+//checks if it's feet or km or miles, if not executes
+
+        } else if ((
+          from !== "feet" ||
+          from !== "km" ||
+          (from !== "miles") &&  (to === "feet") ||
+          to === "km" ||
+          to === "miles"
+        )) {
+          result = `Invalid unit: ${from} to ${to}`;
+        }
+
+        return result;
+      }
+
+      k = "km";
+      m = "miles";
+      f = "feet";
+      g = "lbs";
+      h = 'pounds'
+
+      let value = convertLength(32, k, m);
+      let value1 = convertLength(50, m, k);
+      let value2 = convertLength(5, h, h);
+
+      console.log(value);
+      console.log(value1);
+      console.log(value2);
+    </script>
+  </body>
+</html>
