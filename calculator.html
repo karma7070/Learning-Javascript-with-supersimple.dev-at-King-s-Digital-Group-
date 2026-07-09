@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+
+<body>
+  <button onclick="
+    caln += '1';
+    console.log(caln);
+    ">1</button>
+  <button onclick="
+    caln += '2';
+    console.log(caln);
+    ">2</button>
+  <button onclick="
+    caln += '3';
+    console.log(caln);
+    ">3</button>
+  <button onclick="
+    caln += '4';
+    console.log(caln);
+    ">4</button>
+
+  <br>
+  <br>
+
+  <button onclick="
+    caln += '5';
+    console.log(caln);
+    ">5</button>
+  <button onclick="
+    caln += '6';
+    console.log(caln);
+    ">6</button>
+  <button onclick="
+    caln += '7';
+    console.log(caln);
+    ">7</button>
+  <button onclick="
+    caln += '8';
+    console.log(caln);
+    ">8</button>
+
+    <br>
+  <br>
+
+    <button onclick="
+    caln += '9';
+    console.log(caln);
+    ">9</button>
+  <button onclick="
+    caln += '0';
+    console.log(caln);
+    ">0</button>
+
+  <br>
+  <br>
+
+    <button onclick="
+    caln += ' + ';
+    console.log(caln);
+    ">+</button>
+  <button onclick="
+    caln += ' - ';
+    console.log(caln);
+    ">-</button>
+    <button onclick="
+    caln += ' / ';
+    console.log(caln);
+    ">/</button>
+  <button onclick="
+    caln += ' * ';
+    console.log(caln);
+    ">*</button>
+
+  <br>
+  <br>
+
+  <button onclick="
+  eval(caln);
+  caln = eval(caln);
+  console.log(caln); // converts the string to a number or actual math e.g after clicking 1; caln = '1' | after clicking +; caln = '1+' | after clicking 2; caln = '1+2' | after clicking =; the eval() function converts the currently stored string into numbers and mathematical operations or just math and computes the equation and stores the result in caln and then result is displayed in console
+  
+  ">=</button>
+
+  <button onclick="
+  caln = 'Cleared';
+  console.log(caln);
+  caln = '';
+
+  ">Clear</button>
+
+  <script>
+    let caln = '';
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="test1.css">
+
+      <title>Rock Paper Scissors</title> 
+
+    </head>
+
+    <body>
+      <p>Rock Paper Scissors</p>
+
+      <button onclick="
+       const randNum = Math.random(); //generates a random number between 0 and 1 (decimals between 0 and 1 to be precise >= 0 but < 1)
+      let comMove = '';
+      
+      if(randNum >= 0 && randNum < 1/3){
+        comMove = 'Rock';
+      } 
+         else if(randNum >= 1/3 && randNum < 2/3){
+               comMove = 'Paper';
+            }
+               else if(randNum >= 2/3 && randNum < 1){
+                      comMove = 'Scissors';
+                    }
+
+  
+      
+      let result = '';
+
+      if(comMove === 'Rock'){
+        result = 'It is a Tie';
+
+      } 
+      
+        else if(comMove === 'Paper'){
+        result = 'Computer Wins';
+        }
+
+          else if(comMove === 'Scissors'){
+            result = 'User Wins';
+          }
+
+          alert(`You picked Rock. Computer chose ${comMove} - ${result}`);
+      
+
+
+      ">Rock</button>
+
+      <button onclick="
+       const randNumP = Math.random();
+
+       let comMoveP = '';
+
+       if(randNumP >= 0 && randNumP <1/3){
+        comMoveP = 'Rock';
+       } 
+          else if(randNumP >= 1/3 && randNumP < 2/3){
+                comMoveP = 'Paper';
+             }
+                else if(randNumP >= 2/3 && randNumP < 1){
+                       comMoveP = 'Scissors';
+                     }
+
+                     let resultP = '';
+
+                     if(comMoveP === 'Rock'){
+                      resultP = 'User Wins';
+                     } 
+                        else if(comMoveP === 'Paper'){
+                            resultP = 'It is a Tie';
+                           }
+                             else if(comMoveP === 'Scissors'){
+                                  resultP = 'Computer Wins';
+                                }   
+                                
+                                alert(`You picked Paper. Computer chose ${comMoveP} - ${resultP}`);
+
+       
+      ">Paper</button>
+
+      <button onclick="
+      const  randNumS = Math.random();
+
+       comMoveS = '';
+
+       if(randNumS >= 0 && randNumS <1/3){
+        comMoveS = 'Rock';
+       } 
+          else if(randNumS >= 1/3 && randNumS < 2/3){
+                comMoveS = 'Paper';
+             }
+                else if(randNumS >= 2/3 && randNumS < 1){
+                       comMoveS = 'Scissors';
+                     }
+
+                     let resultS = '';
+
+                     if(comMoveS === 'Rock'){
+                      resultS = 'Computer Wins';
+                     } 
+                        else if(comMoveS === 'Paper'){
+                            resultS = 'User Wins';
+                           }
+                             else if(comMoveS === 'Scissors'){
+                                  resultS = 'It is a Tie';
+                                }   
+                                
+                                alert(`You picked Scissors. Computer chose ${comMoveS} - ${resultS}`);
+      ">Scissors</button>
+
+      <script>
+      </script>
+    </body>
+
+  </html> 

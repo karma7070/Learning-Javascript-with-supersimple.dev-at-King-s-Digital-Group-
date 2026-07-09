@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="test1.css">
+
+      <title>Booleans</title> <!--There are only 2 boolean values: true and false. They are used to represent the truth value of a statement. For example, the statement "The sky is blue" is true, while the statement "The sky is green" is false. Booleans are often used in programming to control the flow of a program based on certain conditions. For example, an if statement can be used to execute a block of code only if a certain condition is true.-->
+
+    </head>
+
+    <body>
+
+
+      <script>
+ /*     true
+      false
+
+       console.log(typeof 'true');
+
+      console.log(3 > 5);
+
+      console.log(3 == '3');//true
+
+      console.log(3==='3'); //false
+
+      //Comparison operators: < , > , >= , <= , === , !== | === vs == : === checks for both value and type (converts them into the same type before checking e.g string converted to integer bfr checking in 5 == "5"), while == checks for value only. For example, 5 === '5' is false, while 5 == '5' is true. 
+      
+      console.log(3 > 5 - 5);
+      //comparison operators have a lower priority than than normal math operators as seen in the documetation
+
+      if(false){
+        console.log('Hello');
+      } else {
+        console.log('Bye');
+      }
+
+      // you can simply enter the boolean value into the if statement to determine whether it executes or not. If the value is true, the code block will execute, while if it is false, it will not execute.
+
+      const lage = 18;
+
+     if(30 <= lage){
+      console.log("you can drive");
+     } else {
+      console.log("you can't drive");
+     }
+
+     console.log(0.2 >= 0 && 0.2 < 1); // can be used to check if number is within a certain range
+
+
+     //Truthy and Falsy values
+
+     if(0){
+      console.log('Truthy');
+     } else {
+      console.log('Falsy');
+     }
+*/
+
+     const result = 0 ? 'truthy' : 'falsy'; //ternary operator: condition ? value if true : value if false
+
+      console.log(result);
+
+      false && console.log('Hello'); //if the first value is false, the second value will not be evaluated
+
+      const message = '' && 'Hello'; //if the first value is true, the second value will be evaluated and returned
+
+      console.log(message);
+
+      </script>
+    </body>
+
+  </html>
