@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="test1.css">
+
+      <title>Rock Paper Scissors</title> 
+
+    </head>
+
+    <body>
+      <p>Rock Paper Scissors</p>
+
+      <button onclick="
+  /*     const randNum = Math.random(); //generates a random number between 0 and 1 (decimals between 0 and 1 to be precise >= 0 but < 1)
+      let comMove = '';
+
+//checks if randNum falls in rock, paper or scissors range
+
+      if(randNum >= 0 && randNum < 1/3){
+        comMove = 'Rock';
+      } 
+         else if(randNum >= 1/3 && randNum < 2/3){
+               comMove = 'Paper';
+            }
+               else if(randNum >= 2/3 && randNum < 1){
+                      comMove = 'Scissors';
+                    }
+
+//next set of if statements compare the user's moves to the computer's move and determines the winner (all of this is stored in 2 functions in the script element below)  
+
+*/
+                        playGame('Rock') ">Rock</button>
+
+      <button onclick=" playGame('Paper')">Paper</button>
+
+      <button onclick=" playGame('Scissors'); ">Scissors</button>
+
+      <button onclick=" resetGame(score)">Reset Score</button>
+
+      <script>
+
+        const score = {
+          wins: 0,
+          losses: 0,
+          ties: 0
+        }
+function pickComMove(){
+
+let randNum = Math.random();
+
+  let comMove = '';
+
+    if(randNum >= 0 && randNum <1/3){
+      comMove = 'Rock';
+    } 
+        else if(randNum >= 1/3 && randNum < 2/3){
+              comMove = 'Paper';
+          }
+              else if(randNum >= 2/3 && randNum < 1){
+                    comMove = 'Scissors';
+                  }
+    
+
+  return comMove; 
+  
+
+  // return statements help us a get a value or variable out of a function
+
+  //returning a variable is preferred to using global variables bcs it easily avoids naming conflicts
+}
+
+function playGame(playerMove){  
+
+      let comMove = pickComMove();
+
+            //   console.log(comMove);  
+
+          result = '';
+
+//Scissors Selection section          
+
+if(playerMove === 'Scissors'){
+
+    if(comMove === 'Rock'){
+    result = 'Computer Wins';
+    } 
+      else if(comMove === 'Paper'){
+          result = 'User Wins';
+          }
+            else if(comMove === 'Scissors'){
+                result = 'It is a Tie';
+              }   
+
+              if(result === 'User Wins'){
+                score.wins++;
+              }
+                else if(result === 'Computer Wins'){
+                  score.losses++;
+                }
+                  else if(result === 'It is a Tie'){
+                    score.ties++;
+                  }
+              
+              alert(`You picked ${playerMove}. Computer chose ${comMove} - ${result}  
+              wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties} `);
+
+                      } 
+
+//Paper Selection section
+
+  else if(playerMove === 'Paper'){
+      
+  let comMove = pickComMove();
+
+      result = '';
+
+      if(comMove === 'Rock'){
+        result = 'User Wins';
+      } 
+          else if(comMove === 'Paper'){
+              result = 'It is a Tie';
+            }
+              else if(comMove === 'Scissors'){
+                    result = 'Computer Wins';
+                  }   
+                  
+              if(result === 'User Wins'){
+                score.wins++;
+              }
+                else if(result === 'Computer Wins'){
+                  score.losses++;
+                }
+                  else if(result === 'It is a Tie'){
+                    score.ties++;
+                  }
+              
+              alert(`You picked ${playerMove}. Computer chose ${comMove} - ${result}  
+              wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties} `);
+                                    
+                        } 
+
+//Rock selection section
+
+    else if(playerMove === 'Rock'){
+
+      let comMove = pickComMove();
+          
+          let result = '';
+
+            if(comMove === 'Rock'){
+              result = 'It is a Tie';
+
+            } 
+          
+                else if(comMove === 'Paper'){
+                result = 'Computer Wins';
+                }
+
+                  else if(comMove === 'Scissors'){
+                    result = 'User Wins';
+                  }
+
+              if(result === 'User Wins'){
+                score.wins++;
+              }
+                else if(result === 'Computer Wins'){
+                  score.losses++;
+                }
+                  else if(result === 'It is a Tie'){
+                    score.ties++;
+                  }
+              
+              alert(`You picked ${playerMove}. Computer chose ${comMove} - ${result}  
+  wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties} `);
+    }
+
+                  }
+ function resetGame(score){
+      function resetScore(score){
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+
+        return score;
+      }  
+
+    let newScore = resetScore(score);
+
+      alert(`Score has been reset
+wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}  `)
+
+return score;
+}      
+      </script>
+    </body>
+
+  </html> 

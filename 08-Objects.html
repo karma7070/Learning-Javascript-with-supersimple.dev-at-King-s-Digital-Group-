@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="test1.css">
+
+      <title>Objects</title> <!--An object groups multiple values together-->
+    </head>
+
+    <body>
+
+
+      <script>
+//2)
+
+  const product2= {
+    name:'shirt',
+    ['delivery-time']: '1 Day', //using bracket notation to add values to the object
+    rating: {
+      stars: 4.5,
+      count:87
+    }, 
+    fun: function function1(){
+      console.log('Running');
+    }
+  }
+
+  
+    console.log(product2.name);
+    console.log(product2.rating.stars)
+    product2.fun();
+
+  console.log(product2.name);
+  console.log(product2['name']); //bracket notation let's us use properties that normally don't work with dot notation. 
+
+  //--overall dot notation is used by default
+//--inside an object we can save any type of value including other objects (nested objects)
+
+  //a method is a function in an object e.g 'fun' above
+
+
+//3) Built in Objects
+//JSON (JavaScript Object Notation) and localStorage
+//JSON is a syntax, similar to javascript object syntax but has less features | JSON is universal since it can be seen by almost all prog languages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*        
+1)        const product = {
+          name: 'sucks', 
+          price: 1090
+        };
+
+        product.name = 'cotton sucks';
+        console.log(product);
+        console.log(product.name); // allows u to tag attributes or elements in the product object
+        console.log(product.price);
+
+        product.newproperty = true; // easy way to add an element to an object
+
+        console.log(product);
+
+        //we can use the 'delete' keyword or statement to remove elements or data from an object
+
+        delete product.newproperty;
+        console.log(typeof product); // tells us product is an object
+
+        // objects allow us to use multiple values together and group ,ultiple values together
+
+*/
+      </script>
+    </body>
+
+  </html>
