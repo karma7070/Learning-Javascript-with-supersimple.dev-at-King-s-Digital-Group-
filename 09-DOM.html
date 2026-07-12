@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="test1.css">
+
+      <title>Document Object Model</title> <!--A built-in object provided by JS, contains properties that we can use to modify a page
+      Also has methods
+      Syntax rules
+      -->
+
+    </head>
+
+    <body>
+
+     <button>Hello</button>
+     <button class="js-btn">Second Button</button>
+
+      <script>
+/////////////////////////////////////////////////////        
+////////////////////  SCRIPT  ////////////////////////       
+//////////////////////////////////////////////////////
+
+      console.log(document.querySelector('button').innerHTML) 
+      //let's us get any element from the page and put it inside JS
+
+      document.querySelector('button')
+        .innerHTML='changed';
+
+        document.querySelector('.js-btn');
+
+        //storing elements in js as objects
+        const btnElement = document.querySelector('.js-btn');
+        console.log(btnElement);
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /*       
+        console.log(document.title);//changes title of page or modifies <title> element
+        document.title = 'Changed';
+
+
+        console.log(document.body)
+        console.log(document.body.innerHTML)
+        document.body.innerHTML = '<button> Good Job </button>';// we can modify our web page using these properties, 
+        // '.body' allows us modify everything within the body tags, 
+        // '.body.innerHTML' allows us to modify the elements in the body specifically
+  
+        document.body.innerHTML = 'hello';
+        document.title = 'D🪙M'
+        */
+      </script>
+    </body>
+
+  </html>

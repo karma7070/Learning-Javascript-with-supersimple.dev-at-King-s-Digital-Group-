@@ -10,6 +10,7 @@
 
 
       <script>
+        /* 
 //2)
 
   const product2= {
@@ -43,38 +44,27 @@
 //JSON is a syntax, similar to javascript object syntax but has less features | JSON is universal since it can be seen by almost all prog languages
 
 
+//JS to JSON
+JSON.stringify()  //Stringify is JSON method we can call
+
+console.log(JSON.stringify(product2)) //JSON does not support functions that's why it doesn't show up in output
+
+//JSON to JS
+
+const jsonstring = JSON.stringify(product2);
+
+console.log(JSON.parse(jsonstring))
 
 
+//localStorage saves values permamanently
+
+//Saving to localStorage we use localStorage.setItem()
+//Reading from local storage we use localStorage.getItem()
+//check rock paper scissors (lesson 08) for example of localStorage use
+
+////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*        
 1)        const product = {
           name: 'sucks', 
           price: 1090
@@ -97,6 +87,69 @@
         // objects allow us to use multiple values together and group ,ultiple values together
 
 */
+
+console.log('Hello'.length)
+console.log('Hello'.toUpperCase()) 
+
+// Auto-Boxing: JS automatically wraps a string in an object allowing the strings to also have properties and methods which it provides
+
+//An object is actually a reference, I think it holds the address of the data stored
+
+const object1 = {
+  msg: 'Hello'
+};
+
+const object2 = object1; //this simply stores the reference or address of object1 into object2 allowing to access the data in object1 instead of replicating the enitire object which would waste memory
+
+object1.msg = 'Good Job'; // const doesn't allow u to modify the reference stored in the variable object1, but allows u to modify the elemments in the object
+
+
+console.log(object1); 
+console.log(object2); 
+
+const object3 = {
+  msg: 'Good Job'
+};
+
+console.log(object1===object3);//false obvi because they contain different refs
+
+const { msg } = object1; // destructuring an object where the element in the object has the same name as the variable so it's value can be passed like this. A new variable 'msg' is initialized with the value stored in object1's msg element
+
+console.log(msg);
+
+const object4 = {
+  msg: msg //variables can be stored in objects like this
+}
+
+object4.price = 78;
+
+console.log(object4)
+
+const object5 = {
+ msg, // variables can be stored in objects like this
+ method: function function1(){
+  console.log('method');
+ }
+}
+
+console.log(object5)
+
+console.log(object5['method']())//display the function like this bcs method takes the function so it has to be called like a function
+
+//Short-hand method
+
+const object6 = {
+ msg, 
+ method(){
+  console.log('method');
+ }
+
+ //instead of writing the function like we did in object5, this is a shorter method
+}
+
+console.log(object6)
+console.log(object6.method())
+
       </script>
     </body>
 

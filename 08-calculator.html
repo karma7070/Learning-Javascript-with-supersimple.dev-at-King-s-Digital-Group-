@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+
+<body>
+  <button onclick="
+   updateCaln('1');
+    ">1</button>
+  <button onclick="
+   updateCaln('2');
+    ">2</button>
+  <button onclick="
+    updateCaln('3');
+    ">3</button>
+  <button onclick="
+    updateCaln('4');
+    ">4</button>
+
+  <br>
+  <br>
+
+  <button onclick="
+    updateCaln('5');
+    ">5</button>
+  <button onclick="
+    updateCaln('6');
+    ">6</button>
+  <button onclick="
+    updateCaln('7');
+    ">7</button>
+  <button onclick="
+    updateCaln('8');
+    ">8</button>
+
+    <br>
+  <br>
+
+    <button onclick="
+    updateCaln('9');
+    ">9</button>
+  <button onclick="
+    updateCaln('0');
+    ">0</button>
+
+  <br>
+  <br>
+
+    <button onclick="
+  updateCaln('+');
+    ">+</button>
+  <button onclick="
+    updateCaln('-');
+    ">-</button>
+    <button onclick="
+    updateCaln('/');
+    ">/</button>
+  <button onclick="
+    updateCaln('*');
+    ">*</button>
+
+  <br>
+  <br>
+
+  <button onclick="
+   solveCaln(caln)
+
+// converts the string to a number or actual math e.g after clicking 1; caln = '1' | after clicking +; caln = '1+' | after clicking 2; caln = '1+2' | after clicking =; the eval() function converts the currently stored string into numbers and mathematical operations or just math and computes the equation and stores the result in caln and then result is displayed in console
+  
+  ">=</button>
+
+  <button onclick="
+  caln = 'Cleared';
+  console.log(caln);
+  caln = '';
+  saveHist(caln)
+
+  ">Clear</button>
+
+  <script>
+/////////////////////////////////////////////////////////////// 
+///////////////////                 //////////////////////////  
+//////////////////     SCRIPT      //////////////////////////
+/////////////////                 //////////////////////////
+///////////////////////////////////////////////////////////
+
+    let caln = '';
+
+    //stores most recent value of caln in ans and displays, if caln is undefined... it returns the  ''
+
+    const ans = localStorage.getItem('caln') || '';
+
+    console.log(ans);
+
+    //this part updates the caln with a new string when a number or operator is clicked
+
+    function updateCaln(n){
+      caln += n;
+      console.log(caln)
+
+      saveHist(caln);
+    }
+
+    //this solves the calculation by converting into an equation using eval() function
+
+    function solveCaln(caln){
+
+     caln = eval(caln)
+     console.log(caln);
+
+      saveHist(caln);
+    }
+
+//saveHist() saves the current caln value each time
+
+    function saveHist(caln){
+      localStorage.setItem('caln', JSON.stringify(caln));    
+    }
+
+  </script>
+</body>
+</html>

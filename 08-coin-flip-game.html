@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Flip Game 🪙</title>
+
+    <style></style>
+  </head>
+  <body>
+    <button
+      onclick="
+        guess = 'heads';
+        playGame(guess);
+        storeScore();
+      "
+    >
+      Heads
+    </button>
+
+    <button
+      onclick="
+        guess = 'tails';
+        playGame(guess);
+        storeScore();
+      "
+    >
+      Tails
+    </button>
+
+    <button onclick="//this only removes the data from local storage, it doesn't change what's in the variable
+     localStorage.removeItem('Score'); 
+
+     score = resetScore()
+
+    console.log(score)">Refresh</button>
+
+    <script>
+      ///////////////////////////////////////////////////////////////////
+      //////////////// SCRIPT  ///////////////////////////////////////
+
+      let guess = "";
+
+      let score = resetScore()
+
+      //so this function sets score to the value stored in local storage, if the value is null score takes the other statement i.e wins and losses === 0; that's how it's initialized
+      
+      function resetScore(){
+        const score = JSON.parse(localStorage.getItem('Score')) || {
+          wins: 0,
+            losses: 0,
+      };
+
+      return score;
+      }
+
+      function playGame(guess) {
+        const flip = Math.random(); //generates rand num
+
+        let result = "";
+
+        //checks if rand num fell within first half where it assigns heads or second half where it assigns tails
+        result = flip >= 0 && flip < 1 / 2 ? "heads" : "tails";
+
+        const display = guess === result ? "You win!" : "You lose!";
+
+        console.log(display);
+
+        //increments win or loss if display true or false respectively
+
+        display === "You win!" ? score.wins++ : score.losses++;
+
+        alert(`${display}
+        Wins: ${score.wins}, Losses: ${score.losses}`);
+      }
+
+      function storeScore() {
+        localStorage.setItem('Score', JSON.stringify(score));
+      }
+
+
+      /*  if(guess === result){
+      console.log("You win!");
+    } else {
+      console.log("You lose!");
+    }
+*/
+    </script>
+  </body>
+</html>

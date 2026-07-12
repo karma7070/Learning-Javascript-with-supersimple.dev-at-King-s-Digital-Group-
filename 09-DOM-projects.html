@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="test1.css">
+
+      <title>DOM Projects</title> <!--A built-in object provided by JS, contains properties that we can use to modify a page
+      Also has methods
+      Syntax rules
+      -->
+
+    </head>
+
+    <body>
+
+      <p>YouTube Subscribe Button</p>
+      <button  onclick="
+      sub()
+      " class="js-sb-btn" >Subscribe</button>
+
+      <script>
+
+        function sub(){
+          const btnElmt = document.querySelector('.js-sb-btn')//assigns the button element to the variable btnElmt
+
+            if(btnElmt.innerText === 'Subscribe'){ //innerText or innerHTML method is used to modify(write) or access(read) the text in the button element.
+              
+              btnElmt.innerHTML = 'Subscribed';
+            } else {
+              btnElmt.innerHTML = 'Subscribe';
+            }
+        }
+
+
+      </script>
+
+    </body>
+
+  </html>

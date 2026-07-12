@@ -39,27 +39,52 @@
 
     <button onclick="playGame('Scissors')">Scissors</button>
 
+    <p class="js-score">hi</p>
+
     <button onclick="resetGame(score)">Reset Score</button>
 
+
     <script>
-      const score = JSON.parse(localStorage.getItem("score")); //since local storage stored the values in the object as string, JSON.parse converts the string stored into the initial values {wins: , losses: , ties: }
+
+
+
+/////////////////////////////////////////////////////////////// 
+///////////////////                 //////////////////////////  
+//////////////////     SCRIPT      //////////////////////////
+/////////////////                 //////////////////////////
+/////////////////////////////////////////////////////////// 
+
+
+      const score = JSON.parse(localStorage.getItem("score")) || {wins: 0, losses: 0, ties: 0}; //since local storage stored the values in the object as string, JSON.parse converts the string stored into the initial values {wins: , losses: , ties: }
 
       console.log(score); //used to get score which was stored in local storage at the 'scissors option' if statement
 
       //convert back to values with JSON.parse
 
+      let playerMove = '"value here"';
+      let comMove = '"value here"';
+      let result = '"value here"';
+
+      //in order for this to work <p> neeeds a text to modify to this, I suffered bfr figuring this out, even AI couldn't help😭😭😭
+        
+      document.querySelector('.js-score')
+        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ${result}        
+        <br> 
+        <br> wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
+    
+
       function pickComMove() {
-        let randNum = Math.random();
+        const randNum = Math.random();  
 
-        let comMove = "";
+        comMove = "";
 
-        if (randNum >= 0 && randNum < 1 / 3) {
-          comMove = "Rock";
-        } else if (randNum >= 1 / 3 && randNum < 2 / 3) {
-          comMove = "Paper";
-        } else if (randNum >= 2 / 3 && randNum < 1) {
-          comMove = "Scissors";
-        }
+          if (randNum >= 0 && randNum < 1 / 3) {
+            comMove = "Rock";
+          } else if (randNum >= 1 / 3 && randNum < 2 / 3) {
+            comMove = "Paper";
+          } else if (randNum >= 2 / 3 && randNum < 1) {
+            comMove = "Scissors";
+          }
 
         return comMove;
 
@@ -69,7 +94,7 @@
       }
 
       function playGame(playerMove) {
-        let comMove = pickComMove();
+        comMove = pickComMove();
 
         //   console.log(comMove);
 
@@ -102,7 +127,7 @@
 
         //Paper Selection section
         else if (playerMove === "Paper") {
-          let comMove = pickComMove();
+          comMove = pickComMove();
 
           result = "";
 
@@ -130,9 +155,9 @@
 
         //Rock selection section
         else if (playerMove === "Rock") {
-          let comMove = pickComMove();
+          comMove = pickComMove();
 
-          let result = "";
+          result = "";
 
           if (comMove === "Rock") {
             result = "It is a Tie";
@@ -155,6 +180,12 @@
           alert(`You picked ${playerMove}. Computer chose ${comMove} - ${result}  
   wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties} `);
         }
+
+         document.querySelector('.js-score')
+        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ${result} <br><br> wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
+        
+
+        return playerMove;
       }
       function resetGame(score) {
         function resetScore(score) {
@@ -169,13 +200,21 @@
 
         localStorage.setItem("score", JSON.stringify(newScore));
 
+
+
         let value = JSON.parse(localStorage.getItem("score"));
 
         alert(`Score has been reset
-wins: ${value.wins}, losses: ${value.losses}, ties: ${value.ties}  `);
+        wins: ${value.wins}, losses: ${value.losses}, ties: ${value.ties}  `);
+
+
+        document.querySelector('.js-score')
+        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} <br><br> ${result}  wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
 
         return (score = newScore);
       }
+
+      
 
       //Alternative for resetting score
 

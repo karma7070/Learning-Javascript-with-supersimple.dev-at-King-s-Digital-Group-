@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 8 - Exercise</title>
+</head>
+<body>
+
+  Lesson 8 Exercises - Objects
+
+  <br>
+  
+  <br>
+
+8a. Let's say in the Amazon project, we have a basketball product. This product has a name of 'basketball', a price of 2095 cents. Create an object to represent this product and display it in the console.
+
+
+  <br>
+  
+  <br>
+
+8b. Continuing from 8a, let's say we want to increase the price by 500 cents. Use dot notation to increase the price, and display the updated object in the console.
+
+
+  <br>
+  
+  <br>
+8c. Using bracket notation, add a property 'delivery-time' to the object with the value '3 days'. Display the updated object in the console.
+
+
+  <br>
+  
+  <br>
+
+8d. Create a function comparePrice(product1, product2), which takes 2 products (with 'name' and 'price' properties) and returns the product that is less expensive. Create 2 products and try out the function.
+
+  <br>
+    <br>
+8e. Create a function `isSameProduct(product1, product2)`, which returns true if 2 products have the same values inside (`'name'` and `'price'`). If not, return false. Create 2 products and try out the function.
+*(Hint: objects are references so you can't compare them directly).*
+
+<br>
+    <br>
+
+8f. Using Google or an A.I. tool, search how to convert a string to all lowercase with JavaScript (`'Good Morning' => 'good morning'`).
+
+<br>
+    <br>
+
+8g. Search how to repeat a string many times (`'test' 2 times => 'testtest'`).
+
+<br>
+    <br>
+
+8h. We'll add `localStorage` to the calculator project. First, make a copy of the project from exercise 7j (see the solution for 7j if needed).
+
+<br>
+    <br>
+
+* Whenever we update the calculation, save it using `.setItem()`
+* When the page first loads, get the calculation using `.getItem()`
+* Use a default value of `''` if a calculation doesn't exist in local storage.
+
+  
+  
+<script>
+  //   ex7   /////////////////////////////////////////////
+
+ const bball = {
+  name: 'basketball', price: 2095 
+ }    
+
+ bball.price +=500;
+
+//console.log(bball);
+
+ bball['delivery-time'] = '3-days';
+
+ function compPrice(obj1, obj2){
+  const comp = obj1.price > obj2.price? obj1 : obj2; 
+
+  console.log(comp);
+ };
+
+ const bball2 = {
+  name: 'basketball', price: 2595
+ }
+
+  bball2['delivery-time'] = '3-days';
+
+  console.log(bball2);
+
+ compPrice(bball, bball2);
+
+ //     ex8    ////////////////////////////////////////////////////
+
+ function isSameProduct(prdt1, prdt2){
+  const val1 = prdt1.name === prdt2.name && prdt1.price === prdt2.price? true : false;
+  
+  return val1;
+ }
+
+ const val2 = isSameProduct(bball, bball2);
+
+ console.log(val2);
+
+ //it works
+
+ const word = 'MaryAnne'
+
+ console.log(word.toLowerCase());//a built in string method that converts all upper cases in a string to lowercase 
+
+ console.log(word.repeat(3));//repeats a string n times
+
+  
+</script>
+</body>
+</html>
