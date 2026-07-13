@@ -55,7 +55,7 @@
 /////////////////////////////////////////////////////////// 
 
 
-      const score = JSON.parse(localStorage.getItem("score")) || {wins: 0, losses: 0, ties: 0}; //since local storage stored the values in the object as string, JSON.parse converts the string stored into the initial values {wins: , losses: , ties: }
+      const score = JSON.parse(localStorage.getItem("score")) || {wins: 0, losses: 0, ties: 0}; //since local storage stored the values in the object as string, JSON.parse converts the string stored into the initial values {wins: , losses: , ties: } and if null default is printed
 
       console.log(score); //used to get score which was stored in local storage at the 'scissors option' if statement
 
@@ -68,7 +68,7 @@
       //in order for this to work <p> neeeds a text to modify to this, I suffered bfr figuring this out, even AI couldn't help😭😭😭
         
       document.querySelector('.js-score')
-        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ${result}        
+        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ===> ${result}        
         <br> 
         <br> wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
     
@@ -121,8 +121,6 @@
 
           localStorage.setItem("score", JSON.stringify(score)); //'score' is the name of the variable stored and is used to get it back and JSON.stringify(score) converts the data into a string so it can be stored by local storage since it only stores strings
 
-          alert(`You picked ${playerMove}. Computer chose ${comMove} - ${result}  
-              wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties} `);
         }
 
         //Paper Selection section
@@ -149,8 +147,6 @@
 
           localStorage.setItem("score", JSON.stringify(score));
 
-          alert(`You picked ${playerMove}. Computer chose ${comMove} - ${result}  
-              wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties} `);
         }
 
         //Rock selection section
@@ -177,17 +173,22 @@
 
           localStorage.setItem("score", JSON.stringify(score));
 
-          alert(`You picked ${playerMove}. Computer chose ${comMove} - ${result}  
-  wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties} `);
         }
 
          document.querySelector('.js-score')
-        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ${result} <br><br> wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
+        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ===> ${result} <br><br> wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
         
 
         return playerMove;
       }
+
+
       function resetGame(score) {
+
+       playerMove = '"value here"';
+       comMove = '"value here"';
+       result = '"value here"';
+
         function resetScore(score) {
           score.wins = 0;
           score.losses = 0;
@@ -204,12 +205,11 @@
 
         let value = JSON.parse(localStorage.getItem("score"));
 
-        alert(`Score has been reset
-        wins: ${value.wins}, losses: ${value.losses}, ties: ${value.ties}  `);
-
-
         document.querySelector('.js-score')
-        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} <br><br> ${result}  wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
+        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ===> ${result}  <br><br> 
+        wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
+
+
 
         return (score = newScore);
       }
