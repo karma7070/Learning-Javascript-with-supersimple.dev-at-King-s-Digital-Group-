@@ -39,7 +39,11 @@
 
     <button onclick="playGame('Scissors')">Scissors</button>
 
-    <p class="js-score">hi</p>
+    <p class="js-result">Blame Netanyahu for this error</p>
+
+    <p class="js-moves">Blame Netanyahu for this error</p>
+
+    <p class="js-score">Blame Netanyahu for this error</p>
 
     <button onclick="resetGame(score)">Reset Score</button>
 
@@ -63,15 +67,22 @@
 
       let playerMove = '"value here"';
       let comMove = '"value here"';
-      let result = '"value here"';
+      let result = '"result here"';
 
       //in order for this to work <p> neeeds a text to modify to this, I suffered bfr figuring this out, even AI couldn't help😭😭😭
-        
-      document.querySelector('.js-score')
-        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ===> ${result}        
-        <br> 
-        <br> wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
     
+       function updateScoreElement(){
+        document.querySelector('.js-result')
+        .innerHTML = `${result}`;
+
+        document.querySelector('.js-moves')
+        .innerHTML = `You picked ${playerMove} / Computer picked ${comMove}`;
+
+        document.querySelector('.js-score')
+        .innerHTML = `wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
+       } 
+
+       updateScoreElement();
 
       function pickComMove() {
         const randNum = Math.random();  
@@ -93,7 +104,10 @@
         //returning a variable is preferred to using global variables bcs it easily avoids naming conflicts
       }
 
-      function playGame(playerMove) {
+      function playGame(pMove) {
+
+        playerMove = pMove;
+
         comMove = pickComMove();
 
         //   console.log(comMove);
@@ -175,11 +189,13 @@
 
         }
 
-         document.querySelector('.js-score')
-        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ===> ${result} <br><br> wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
-        
+        updateScoreElement();
 
+        console.log(`${playerMove}`);
+
+        
         return playerMove;
+
       }
 
 
@@ -201,15 +217,7 @@
 
         localStorage.setItem("score", JSON.stringify(newScore));
 
-
-
-        let value = JSON.parse(localStorage.getItem("score"));
-
-        document.querySelector('.js-score')
-        .innerHTML = `You picked ${playerMove}. Computer chose ${comMove} ===> ${result}  <br><br> 
-        wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}`;
-
-
+        updateScoreElement();
 
         return (score = newScore);
       }
