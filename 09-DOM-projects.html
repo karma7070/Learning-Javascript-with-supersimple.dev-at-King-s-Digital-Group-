@@ -6,7 +6,21 @@
       <title>DOM Projects</title> <!--A built-in object provided by JS, contains properties that we can use to modify a page
       Also has methods
       Syntax rules
+
+      Events and Event Listeners
+
+      Events are things like clicks and keydowns (typing), actions performed
+
+      Event listeners are things like onclick and onkeydowns check for events and run js code based on those events
+
+
+      Built in objects so far include: event object which tracks keyboard actions 
+      document object which represents the webpage
+      window object which tracks the browser
+
       -->
+
+
 
     </head>
 
@@ -17,7 +31,27 @@
       sub()
       " class="js-sb-btn" >Subscribe</button>
 
+
+      <p>Amazon Shipping Calculator</p>
+
+      <input class="js-input" 
+      type="number" 
+      placeholder="Cost of order"
+      onkeydown="handleCostKeydown(event)//has to be specified as parameter being passed to the funciton or it won't work">
+      <button onclick="
+      caln();
+      ">Calculate</button>
+
+      <p class="js-calc">val</p>
+
       <script>
+        function handleCostKeydown(event){//takes the event passed from above and places in the new object event which is used here
+        console.log(event.key)
+      //event is a special object given to us in the event listener onkeydown and the key can be specified using '.key'
+      if(event.key === 'Enter'){
+        caln()
+      }//now if the event listener detects the enter key then it performs the function
+        }
 
         function sub(){
           const btnElmt = document.querySelector('.js-sb-btn')//assigns the button element to the variable btnElmt
@@ -29,6 +63,28 @@
               btnElmt.innerHTML = 'Subscribe';
             }
         }
+
+        function caln(){
+          const inputElt = document.querySelector('.js-input');//for input elements we use '.value' instead of innerHTML since there's no html to target
+
+          console.log(inputElt.value);
+
+          let cost = Number(inputElt.value);//inputElt.value returns a string making cost to store a string, but we want a number so we use JS's built in function 'Number()' which converts strings written into the brackets into numbers
+
+          console.log(typeof cost)
+
+          if(cost < 40){
+            cost= eval(cost + 10);
+          } 
+
+          document.querySelector('.js-calc')
+          .innerHTML = `$${cost}`;
+
+        }
+
+        
+        window.console.log('window');
+        window.alert//we don't hv to type out window bcs js adds it for us automatically 
 
 
       </script>
