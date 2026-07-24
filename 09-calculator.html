@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+  
+      }
+      .main-con {
+        border-style: solid;
+        border-color: lightcoral;
+        background-color: lightpink;
+        display: flex;
+        flex-direction: column;  
+        width: 30%;
+        padding-top: 3px;
+        padding-bottom: 20px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        
+      } 
+
+      .ans-con{
+        border-style: solid;
+        width: 90%;
+        height: fit-content;
+
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        border-color: aqua;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 7px;
+
+      }
+
+      .js-ansbox{
+
+        width: 90%;
+       align-self: center;
+
+      }
+
+      .js-hist{
+   
+        width: 90%;
+        text-align: right;
+      }
+
+
+      .btn-box{
+        border-style: solid;
+        margin-top: 9px;
+        border-color: aquamarine;
+        text-align: center;
+        width: 80%;
+        flex: 1;
+        background-color: rgb(189, 229, 230);
+        padding: 4px 2px 4px 2px;
+         border-radius: 7px;
+      }
+
+      .btn-box  button{
+        width: 20%;
+        border-radius: 5px;
+        border-width: 1px;
+
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="main-con">
+      <div class="ans-con">
+        <div class="js-ansbox">0</div>
+        <div class="js-hist">0</div>
+      </div>
+
+      <div class="btn-box">
+        <button onclick="updateCaln('1')">1</button>
+        <button onclick="updateCaln('2')">2</button>
+        <button onclick="updateCaln('3')">3</button>
+        <button onclick="updateCaln('4')">4</button>
+
+        <br />
+        <br />
+
+        <button onclick="updateCaln('5')">5</button>
+        <button onclick="updateCaln('6')">6</button>
+        <button onclick="updateCaln('7')">7</button>
+        <button onclick="updateCaln('8')">8</button>
+
+        <br />
+        <br />
+
+        <button onclick="updateCaln('9')">9</button>
+        <button onclick="updateCaln('0')">0</button>
+
+        <button onclick="updateCaln('+')">+</button>
+        <button onclick="updateCaln('-')">-</button>
+
+        <br />
+        <br />
+
+        <button onclick="updateCaln('/')">/</button>
+        <button onclick="updateCaln('*')">*</button>
+
+        <button
+          onclick="
+            solveCaln()
+
+            // converts the string to a number or actual math e.g after clicking 1; caln = '1' | after clicking +; caln = '1+' | after clicking 2; caln = '1+2' | after clicking =; the eval() function converts the currently stored string into numbers and mathematical operations or just math and computes the equation and stores the result in caln and then result is displayed in console
+          "
+        >
+          =
+        </button>
+
+        <button
+          onclick="
+          clearAns()
+          "
+        >
+          Clr
+        </button>
+      </div>
+    </div>
+    <script>
+      ///////////////////////////////////////////////////////////////
+      ///////////////////                 //////////////////////////
+      //////////////////     SCRIPT      //////////////////////////
+      /////////////////                 //////////////////////////
+      ///////////////////////////////////////////////////////////
+
+      let value1 = document.querySelector(".js-ansbox");
+      let value2 = document.querySelector('.js-hist');
+
+      let caln = JSON.parse(localStorage.getItem('caln')) || '0';
+
+      value2.innerHTML = `${caln}`;
+
+      //stores most recent value of caln in ans and displays, if caln is undefined... it returns the  ''
+
+     // const ans = localStorage.getItem("caln") || "";
+
+      console.log(caln);
+
+      //this part updates the caln with a new string when a number or operator is clicked
+
+      function updateCaln(n) {
+        caln += n;
+        console.log(caln);
+
+        saveHist();
+        displayVal1();
+
+        return caln;
+      }
+
+      //this solves the calculation by converting into an equation using eval() function
+
+      function solveCaln(){
+        caln = eval(caln);
+        //console.log(caln);
+
+        saveHist();
+        dispValue2();
+      }
+
+      //saveHist() saves the current caln value each time
+
+      function saveHist() {
+        localStorage.setItem('caln', JSON.stringify(caln));
+      }
+
+      //clearing the value from JSON
+
+      function clearAns(){
+       caln = '0';
+       console.log(caln);
+       saveHist();
+       dispValue2();
+       displayVal1();
+      }
+
+      //top part is val 1
+
+       function displayVal1(){
+        value1.innerHTML = JSON.parse(localStorage.getItem('caln'));
+       }
+
+       //bottom part is value 2
+
+       function dispValue2(){
+        value2.innerHTML = `${caln}`;
+       }
+
+
+      
+
+    </script>
+  </body>
+</html>

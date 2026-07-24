@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Exercises
+  </title>
+
+  <style>
+    body{
+      height: 1000px;
+    }
+
+  .js-sub{
+    margin-left:-6px;
+
+  }
+  </style>
+</head>
+<body>
+
+  /Ex1/ <br>
+  ====<br>
+
+<button class="js-heads" onclick="
+ display('Heads');
+  ">
+  Head
+</button>
+
+<button class="js-tails" onclick="
+ display('Tails');
+">
+  Tails
+</button>
+
+<p class=js-disp>You chose 'choice'</p>
+
+=======================================================================|
+
+  /Ex2/ <br>
+  ====<br>
+
+
+<input class="js-input" placeholder="enter text" 
+onkeydown="
+sub()
+enterKey(event)">
+
+
+<button class="js-sub" onclick="
+sub()
+">Submit</button>
+
+<p class="js-p">Input:</p>
+
+======================================================================|
+
+  /Ex3/ <br>
+  ====<br>
+
+  <input class="js-input2" 
+  placeholder="Type something" 
+  onkeyup="
+  updateP(event)
+  ">
+
+  <p class="js-p2">Type</p>
+
+  <script>
+////////////  Ex1    //////////////////
+
+  const btn1 = document.querySelector('.js-heads');
+
+  const btn2 = document.querySelector('.js-tails');
+
+  const disp = document.querySelector('.js-disp');
+
+  function display(choice){
+   disp.innerHTML = `You chose ${choice}`;
+  }
+
+
+///////////  Ex2 /////////////////// 
+
+  //use .value to access input value
+
+   let input = '';
+
+  function sub(){
+     input = document.querySelector('.js-input').value;
+
+    document.querySelector('.js-p').innerHTML = `Input is ${input}`
+
+    console.log(input)
+  }
+
+  function enterKey(event){
+    console.log(event);
+
+    if(event.key === 'Enter'){
+     document.querySelector('.js-p').innerHTML = `Input is ${input}`
+    }
+
+
+    else
+    if(event.key === '='){
+    console.log(input)
+    input = eval(input)
+    document.querySelector('.js-p').innerHTML = `Input is $${input}`
+    }
+
+    else {
+      document.querySelector('.js-p').innerHTML = `Input is pending...`
+    }
+
+
+  }
+
+
+ ////////////  Ex3 /////////////////////////  
+
+ function updateP(event){
+  const val = document.querySelector('.js-input2').value;
+   
+  if(event.key){
+    document.querySelector('.js-p2').innerHTML = `Typing`;
+    document.querySelector('.js-p2').innerHTML = `${val}`;
+  }
+
+    //if(event.key === 'Enter'){
+   // document.querySelector('.js-p2').innerHTML = `Typing`;
+  //  document.querySelector('.js-p2').innerHTML = `${val}`;
+ // }
+   
+
+}
+  
+
+  
+  
+
+  </script>
+</body>
+</html>
