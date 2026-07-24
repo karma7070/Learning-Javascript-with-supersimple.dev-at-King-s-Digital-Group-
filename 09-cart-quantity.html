@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="test1.css">
+    </head>
+
+    <body>
+      <button
+      onclick="
+        console.log(`Cart Quantity: ${cartQuantity}`); 
+      
+      //use back ticks to create a template string/literal // ${} used to insert variables within back tick encapsulated strings only
+       displayCQ()
+
+      ">Show Quantity</button>
+
+      <button
+
+      onclick="
+        updateCartQuantity(1);
+         displayCQ()
+      ">Add to Cart</button>
+
+      <button
+      onclick="
+        updateCartQuantity(2);
+           displayCQ()
+      ">+2</button>
+
+      <button
+      onclick="
+         updateCartQuantity(3);
+           displayCQ()
+      ">+3</button>
+
+      <button
+      onclick="
+       cartQuantity = 0;
+         console.log(`Cart was reset`);
+           console.log(`Cart Quantity: ${cartQuantity}`);
+            displayCQ()
+      ">Reset Cart</button>
+
+      <button
+      onclick="
+
+      
+        if(cartQuantity === 0){
+          console.log('Cart is Empty');
+        }   else{
+              cartQuantity-=1
+                console.log(`Cart quantity is: ${cartQuantity}`)
+        }
+
+        displayCQ()
+           
+
+    //  if(cartQuantity<0){
+      //  cartQuantity=0;
+     // }
+
+  
+
+      ">
+        Remove from Cart
+      </button>
+
+      <p class="js-cq"></p>
+
+      <script>
+       let cartQuantity = JSON.parse(localStorage.getItem('CQ')) || 0;
+
+       function updateCartQuantity(n){
+        
+      if(cartQuantity > 10){
+        console.log('Cart is full');
+        
+      }   else {
+            cartQuantity += n;
+              console.log(`Cart Quantity: ${cartQuantity}`);
+      }
+
+      localStorage.setItem('CQ', JSON.stringify(cartQuantity));
+       }
+
+       let cq = document.querySelector('.js-cq');
+
+        cq.innerHTML = `Cart Quantity: ${cartQuantity}`;
+
+function displayCQ(){
+       cq.innerHTML = `Cart Quantity: ${cartQuantity}`;
+}
+      </script>
+    </body>
+
+  </html>

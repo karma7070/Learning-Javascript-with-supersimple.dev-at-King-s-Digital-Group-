@@ -78,7 +78,9 @@
           } 
 
           document.querySelector('.js-calc')
-          .innerHTML = `$${cost}`;
+          .innerHTML = `$${cost.toFixed(2)}`;
+
+          //number method toFixed() used to round up
 
         }
 
