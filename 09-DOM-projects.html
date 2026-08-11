@@ -59,8 +59,12 @@
             if(btnElmt.innerText === 'Subscribe'){ //innerText or innerHTML method is used to modify(write) or access(read) the text in the button element.
               
               btnElmt.innerHTML = 'Subscribed';
+
+              btnElmt.classList.add('is-subscribed');
+
             } else {
               btnElmt.innerHTML = 'Subscribe';
+              btnElmt.classList.remove('is-subscribed');
             }
         }
 
