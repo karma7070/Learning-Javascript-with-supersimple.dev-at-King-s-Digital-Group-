@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="10-rock-paper-scissors.css" />
+
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+
+<div class="optbtn-con-js">
+    <button class="optbtn-js" onclick="playGame('Rock');">
+      <img class="optimg-js" src="rock-emoji.png">
+    </button>
+
+    <button class="optbtn-js" onclick="playGame('Paper')">
+      <img class="optimg-js" src="paper-emoji.png">
+    </button>
+
+    <button class="optbtn-js" onclick="playGame('Scissors')">
+      <img class="optimg-js" src="scissors-emoji.png">
+    </button>
+</div>
+
+    <p class="js-result">
+    </p>
+
+    <p class="js-moves"> 
+   </p>
+
+    <p class="js-score">Blame Netanyahu for this error</p>
+
+    <button class="res-js" onclick="resetGame(score)">Reset Score</button>
+
+    <script src="10-rock-paper-scissors.js"></script>
+  </body>
+</html>

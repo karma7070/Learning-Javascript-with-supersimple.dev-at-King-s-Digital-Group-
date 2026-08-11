@@ -10,25 +10,22 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-  
       }
       .main-con {
         border-style: solid;
-        border-color: lightcoral;
-        background-color: rgb(204, 130, 141);
+        border-color: rgb(0, 0, 0);
+        background-color: rgb(182, 198, 255);
         display: flex;
-        flex-direction: column;  
-        width: 30%;
+        flex-direction: column;
+        width: 50%;
         padding-top: 3px;
         padding-bottom: 20px;
         justify-content: space-between;
         align-items: center;
         border-radius: 10px;
-        
-      } 
+      }
 
-      .ans-con{
+      .ans-con {
         border-style: solid;
         width: 90%;
         height: fit-content;
@@ -38,47 +35,55 @@
         flex-direction: column;
         align-items: center;
 
-        border-color: aqua;
+        border-color: rgb(13, 0, 255);
         padding-top: 3px;
         padding-bottom: 3px;
         background-color: rgb(255, 255, 255);
         border-radius: 7px;
-
       }
 
-      .js-ansbox{
-
+      .js-ansbox {
         width: 90%;
-       align-self: center;
-
+        align-self: center;
+        padding-top: 5px;
+        padding-bottom: 20px;
       }
 
-      .js-hist{
-   
+      .js-hist {
         width: 90%;
         text-align: right;
+        padding-bottom: 10px;
       }
 
-
-      .btn-box{
+      .btn-box {
         border-style: solid;
         margin-top: 9px;
-        border-color: aquamarine;
+        border-style: none;
         text-align: center;
-        width: 80%;
+        width: 90%;
         flex: 1;
-        background-color: rgb(189, 229, 230);
+        background-color: rgb(91, 63, 152);
         padding: 4px 2px 4px 2px;
-         border-radius: 7px;
+        border-radius: 7px;
       }
 
-      .btn-box  button{
+      .btn-box button {
         width: 20%;
-        border-radius: 5px;
+        border-radius: 30px;
         border-width: 1px;
 
+        padding: 15px 15px;
+        border-style: none;
+        box-shadow: inset 0px 0px 5px 0px rgb(0, 0, 0);
+
+        transition: all 0.3s ease-in-out;
       }
 
+      .btn-box button:hover {
+        background-color: rgb(202, 56, 168);
+        color: white;
+        box-shadow: inset 0px 0px 5px 0px rgb(255, 255, 255);
+      }
     </style>
   </head>
 
@@ -128,13 +133,7 @@
           =
         </button>
 
-        <button
-          onclick="
-          clearAns()
-          "
-        >
-          Clr
-        </button>
+        <button onclick="clearAns()">Clr</button>
       </div>
     </div>
     <script>
@@ -145,15 +144,15 @@
       ///////////////////////////////////////////////////////////
 
       let value1 = document.querySelector(".js-ansbox");
-      let value2 = document.querySelector('.js-hist');
+      let value2 = document.querySelector(".js-hist");
 
-      let caln = JSON.parse(localStorage.getItem('caln')) || '';
+      let caln = JSON.parse(localStorage.getItem("caln")) || "";
 
       value2.innerHTML = `${caln}`;
 
       //stores most recent value of caln in ans and displays, if caln is undefined... it returns the  ''
 
-     // const ans = localStorage.getItem("caln") || "";
+      // const ans = localStorage.getItem("caln") || "";
 
       console.log(caln);
 
@@ -171,9 +170,8 @@
 
       //this solves the calculation by converting into an equation using eval() function
 
-      function solveCaln(){
+      function solveCaln() {
         caln = eval(caln);
-        //console.log(caln);
 
         saveHist();
         dispValue2();
@@ -182,34 +180,34 @@
       //saveHist() saves the current caln value each time
 
       function saveHist() {
-        localStorage.setItem('caln', JSON.stringify(caln));
+        localStorage.setItem("caln", JSON.stringify(caln));
       }
 
       //clearing the value from JSON
 
-      function clearAns(){
-       caln = '';
-       console.log(caln);
-       saveHist();
-       dispValue2();
-       displayVal1();
+      function clearAns() {
+        caln = "";
+        console.log(caln);
+        saveHist();
+        padding();
+
       }
 
       //top part is val 1
+      function padding() {
+        value1.innerHTML = "0";
+        value2.innerHTML = "0";
+      }
 
-       function displayVal1(){
-        value1.innerHTML = JSON.parse(localStorage.getItem('caln'));
-       }
+      function displayVal1() {
+        value1.innerHTML = JSON.parse(localStorage.getItem("caln"));
+      }
 
-       //bottom part is value 2
+      //bottom part is value 2
 
-       function dispValue2(){
+      function dispValue2() {
         value2.innerHTML = `${caln}`;
-       }
-
-
-      
-
+      }
     </script>
   </body>
 </html>

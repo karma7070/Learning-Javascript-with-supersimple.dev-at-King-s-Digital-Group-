@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 10 Exercise</title>
+
+  <style>
+        .js-button{
+      padding: 10px;
+      color: rgb(0, 0, 0);
+      background-color: rgb(217, 217, 217);
+      border-radius: 10px;
+      border-style: none;
+    }
+
+    .js-butt2{
+        padding: 10px;
+      color: rgb(0, 0, 0);
+      background-color: rgb(217, 217, 217);
+      border-radius: 10px;
+      border-style: none;
+    }
+
+    .js-butt3{
+        padding: 10px;
+      color: rgb(0, 0, 0);
+      background-color: rgb(217, 217, 217);
+      border-radius: 10px;
+      border-style: none;
+    }
+
+    .toggle{
+      padding: 10px;
+      color: white;
+      background-color: rgb(14, 18, 18);
+      border-style: none;
+
+    }   
+    
+    .js-input{
+      padding: 10px 10px;
+    }
+
+    .amz-btn{
+      padding: 12px 15px;
+      border: none;
+      background-color: rgb(11, 190, 47);
+      color: white;
+    }
+
+    .red{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <button
+  onclick="
+  toggleTest('Gaming');
+  "
+  class="js-button">Gaming</button>
+
+  <button  onclick="
+  toggleTest('Music');
+  " class="js-butt2">Music</button>
+
+  <button  onclick="
+  toggleTest('Tech');
+  " class="js-butt3">Tech</button>
+
+<br>
+<br>
+<br>
+
+  <p>Amazon Shipping Calculator</p>
+
+      <input class="js-input" 
+      type="number" 
+      placeholder="Cost of order"
+      onkeydown="handleCostKeydown(event)">
+
+
+      <button 
+      class="amz-btn"
+      onclick="
+      caln();
+      ">Calculate</button>
+
+      <p class="js-calc">val</p>
+
+
+  <script>
+
+    function toggleTest(button){
+       const testbtn = document.querySelector('.js-button');
+
+       const testbtn2 = document.querySelector('.js-butt2');
+
+       const testbtn3 = document.querySelector('.js-butt3');
+
+       if(button == 'Gaming'){
+
+     if(!testbtn.classList.contains('toggle')){
+      testbtn.classList.add('toggle');
+      testbtn2.classList.remove('toggle');
+      testbtn3.classList.remove('toggle');
+     } else{
+       testbtn.classList.remove('toggle');
+      testbtn2.classList.remove('toggle');
+      testbtn3.classList.remove('toggle');
+     }
+
+    }
+
+    if(button == 'Music'){
+      if(!testbtn2.classList.contains('toggle')){
+      testbtn.classList.remove('toggle');
+      testbtn2.classList.add('toggle');
+      testbtn3.classList.remove('toggle');
+     } else{
+       testbtn.classList.remove('toggle');
+      testbtn2.classList.remove('toggle');
+      testbtn3.classList.remove('toggle');
+     }
+
+    }
+
+    if(button == 'Tech'){
+      if(!testbtn3.classList.contains('toggle')){
+      testbtn.classList.remove('toggle');
+      testbtn2.classList.remove('toggle');
+      testbtn3.classList.add('toggle');
+     } else{
+       testbtn.classList.remove('toggle');
+      testbtn2.classList.remove('toggle');
+      testbtn3.classList.remove('toggle');
+     }
+     
+    }
+
+    
+    }
+
+//////////////  input section  ///////////////
+
+function handleCostKeydown(event){
+     console.log(event.key)
+       let inputVal = document.querySelector('.js-input').value;
+
+       inputVal = Number(inputVal);
+
+       if(inputVal < 0){
+         document.querySelector('.js-calc')
+        .classList.add('red');
+
+       console.log(inputVal);
+
+        document.querySelector('.js-calc')
+        .innerHTML = "Error cost cannot be less than 0"
+       } else{
+      document.querySelector('.js-calc')
+        .classList.remove('red');
+if(event.key === 'Enter'){
+        caln()
+      }
+       }
+        }
+
+       function caln(){
+          const inputElt = document.querySelector('.js-input');
+
+          console.log(inputElt.value);
+
+          let cost = Number(inputElt.value);
+
+          console.log(typeof cost)
+
+          if(cost < 40){
+            cost= eval(cost + 10);
+          } 
+
+          document.querySelector('.js-calc')
+          .innerHTML = `$${cost.toFixed(2)}`;
+
+        }
+
+  </script>
+  
+</body>
+</html>
