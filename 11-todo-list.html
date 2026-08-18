@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+
+  <link rel="stylesheet" href="CSS/11-todo-list.css">
+</head>
+<body>
+
+  <p>To-do List Practice 1</p>
+  <input 
+  onkeydown="
+  displayWEvent(event);
+  "
+  placeholder="To-do name" class="input1">
+
+  <button
+  onclick="
+  addTodo();
+  "
+  >Button</button>
+
+  <div 
+  onkeydown="
+  displayWEvent(event);
+  "
+  class="display-js"></div>
+  
+  <script src="JavaScript/11-todo-list.js"></script>
+</body>
+</html>

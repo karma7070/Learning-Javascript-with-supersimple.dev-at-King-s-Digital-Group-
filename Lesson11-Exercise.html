@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 11 - Ex</title>
+</head>
+<body>
+
+  <script>
+
+    function arraySwap(){
+      array = ['hi','hi','hi','hi', 'hello', 'good', 'hello', 'good', 'hello', 'hello', 'hello', 'hello', 'hello', 'good', 'good', 'good']
+
+      array2 = [];
+
+      for(let i = array.length - 1; i > -1; i--){
+        const val = array[i]
+        array2.push(val);
+      }
+
+      console.log(array2);
+    }
+
+    arraySwap()
+    
+    arraynums = [-3, 5, 7, 3 , 6, 4, 2, 10, 100]
+
+    const obj = {
+      min: 100, max: 0
+    };
+
+    let valMax = 0;
+    let valMin = 100;
+
+
+    function checkBig(array3){
+        if(array3 === null){
+          throw exception ('array is null');
+        }
+
+      for(let i = 0; i < array3.length; i++){
+          if(array3[i+1] > array3[i]){
+            if(valMax < array3[i+1]){
+              valMax = array3[i+1]
+                obj.max = valMax;
+            }  
+               }
+
+            if(array3[i] < array3[i+1]){
+              if(array3[i] < valMin){
+                valMin = array3[i]
+                obj.min = valMin;
+              }
+            }   
+           // const val2;
+           // if()
+
+           // obj = {
+             // min: 7, 
+            //}
+      }
+    }
+
+     checkBig([3]);
+      console.log(obj);
+
+      let val5 = 0;
+      const object = {hello: 0, hi: 0, good: 0};
+      let val6= '';
+      let back ='';
+      function countWords(array){
+        for(let i = 0; i < array.length; i++){
+
+          if(array[i] === array[i+1]){
+            if(array[i] === back){
+              //back = array[i]
+              object[back] +=1;
+            } else{
+              object[array[i]] +=1;
+            }
+            
+          } else{
+            back = array[i];
+            object[back] +=1;
+          }   
+            
+          }
+        
+       }
+      
+
+      
+        countWords(array);
+        console.log(object);
+  </script>
+  
+</body>
+</html>
