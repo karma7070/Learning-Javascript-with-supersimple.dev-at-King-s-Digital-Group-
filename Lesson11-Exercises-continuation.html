@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 11 - Ex</title>
+</head>
+<body>
+
+  <script>
+    const arrayStrings = ['hello', 'good', 'search', 'world']
+
+    function searchArray(word){
+
+      for(let i = 0; i < arrayStrings.length; i++){
+        const num = arrayStrings[i];
+
+        if(num === word){
+          return i;
+        }
+
+      
+      }
+
+        return -1;
+    }
+
+    console.log(searchArray('search'));
+
+
+    const arrayFood = ['egg', 'beef', 'eru', 'egg', 'egg', 'tea', 'beef', 'bread', 'beef' ]
+
+    const newArrayFood = [];
+
+    function removeMeal(array, meal){
+
+        for(let i = 0; i < array.length; i++){
+          const num = array[i];
+
+          if(num === meal){
+            continue;
+          } 
+         console.log(num);
+        }
+      //  return arrayFood;
+    }
+
+    console.log(removeMeal(arrayFood, 'egg'));
+
+  </script>
+  
+</body>
+</html>

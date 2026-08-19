@@ -6,13 +6,21 @@
 
     let dis = document.querySelector('.display-js');
 
-    const array1 = JSON.parse(localStorage.getItem('array')) || [];
+    let inpDate = document.querySelector('.input2');
 
-   // localStorage.removeItem('array');
+    const array1 = JSON.parse(localStorage.getItem('array')) || [{name: nothing, due_date: nothing}, { name: nothing, due_date: nothing}];
+
+    //localStorage.removeItem('array');
 
     function addTodo(){
+
+      if(inpDate.value === null){
+        inpDate.value = "No date";
+      }
+
+      console.log(inpDate.value);
   
-    array1.push(inpVal.value);
+    array1.push({name: inpVal.value, duedate: inpDate.value});
 
     localStorage.setItem('array', JSON.stringify(array1));
 
@@ -28,15 +36,18 @@
 
         let todoListHTML = '';
       
-     for(let i = 0; i < array1.length - 1; i++){
+     for(let i = 0; i < array1.length; i++){
          const val = array1[i];
-         const html =`<div>
-                        <p>${val}</p>
+         const {name, duedate} = val;
+         const html =`
+                        <div>${name}</div>
+                        <div> ${duedate}</div>
                         <button 
-                        onclick = " deleteTodo()"
+                        onclick = " array1.splice(${i}, 1);
+                        displayWBtn();"
                         class = "delbtn"
                         >Delete</button>
-                      </div>`;
+                                              `;
          todoListHTML += html;
      }
 
