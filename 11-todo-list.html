@@ -10,23 +10,28 @@
 <body>
 
   <p>To-do List Practice 1</p>
+
+<div class="input-div">
   <input 
   onkeydown="
   displayWEvent(event);
   "
   placeholder="To-do name" class="input1">
 
+   <input class="input2" type="datetime-local">
+
   <button
   onclick="
   addTodo();
-  "
-  >Button</button>
 
-  <div 
-  onkeydown="
-  displayWEvent(event);
   "
-  class="display-js"></div>
+  class="addbtn"
+  >Add</button>
+  </div>
+
+  <div class="display-js"></div>
+
+ 
   
   <script src="JavaScript/11-todo-list.js"></script>
 </body>
