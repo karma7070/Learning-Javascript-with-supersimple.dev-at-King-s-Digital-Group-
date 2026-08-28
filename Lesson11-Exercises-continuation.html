@@ -31,7 +31,7 @@
     const arrayFood = ['egg', 'beef', 'eru', 'egg', 'egg', 'tea', 'beef', 'bread', 'beef' ]
 
     const newArrayFood = [];
-
+/*
     function removeMeal(array, meal){
 
         for(let i = 0; i < array.length; i++){
@@ -46,8 +46,92 @@
     }
 
     console.log(removeMeal(arrayFood, 'egg'));
+*/
+    let g = 0;
 
-    let g;
+//fused exercises together, the array reversal and simply removing element from the array 
+
+    const result = [];
+    function removefirst2Meal(array, meal){
+
+        for(let i = 0; i < array.length; i++){
+
+          const num = array[i];
+
+          if(num === meal && g < 2){
+            g++;
+            array.splice(i, 1);
+
+          } //skips the first 2 duplications and returns the last one
+
+        //  result.push(num)
+
+        }
+
+        return arrayFood;
+    }
+
+   
+
+    console.log( removefirst2Meal(arrayFood.reverse(), "beef"));
+ //the first one required us to remove the first 2 while the second required us to reverse and remove the last 2 instead
+
+
+//.slice()
+
+//this method allows you to make a copy of your array from 
+// specified locations in the array, you can also extract 
+// the elements backwards and like reverse the array and shi
+
+
+//copies elements of the array from the 0th location to the end.
+
+//console.log(slicedArray);
+
+    function removefirst2MealWithSplice(array, meal){
+
+      const slicedArray = array.slice(0);
+
+        for(let i = 0; i < slicedArray.length; i++){
+
+          const num = slicedArray[i];
+
+          if(num === meal && g < 2){
+            g++;
+            slicedArray.splice(i, 1);
+
+          }
+
+        //  result.push(num)
+
+        }
+
+        return slicedArray;
+    }
+
+    
+console.log(removefirst2MealWithSplice(arrayFood, "beef"))
+
+let i = 1;
+
+while(i < 21){
+
+  if(i % 3 === 0){
+     console.log("Fizz");
+  } else 
+        if(i % 5 === 0){
+          console.log("Buzz");
+        }
+          else{
+                console.log(i);
+              }
+
+              if(i % 3 === 0 && i % 5 === 0){
+                console.log("FizzBuzz");
+              } 
+ i++;
+}
+
 
   </script>
   
