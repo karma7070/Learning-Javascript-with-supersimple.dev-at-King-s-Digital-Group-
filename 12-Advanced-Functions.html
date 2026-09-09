@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Functions</title>
+</head>
+<body>
+  
+  <script>
+/*
+    //Functions are really just values, they can be passed to variables
+
+    const var1 = function(){
+      console.log("hello");
+
+    }
+
+    console.log(var1())
+
+    console.log(typeof var1());//returns type 'function'
+
+    //can also be saved in objects
+
+    const object = {
+      num: 2,
+      fun: function greeting(){
+            console.log("Hi!");
+      }
+    }
+
+    object.fun();
+
+    //can be passed into other functions
+
+    function fun1(param){
+      param(); //a function has been passed to 'param' making it store a function, meaning it's type is now 'function' so it can simply be called
+    }
+
+    fun1(function(){
+      console.log("Hello!");
+    })
+     
+
+/////////// setTimeout and setInterval ////////////////////
+      setTimeout(function(){
+        console.log("timeout!")
+      }, 3000)
+
+     const interval = setInterval(function(){
+        console.log("timeout!")
+      }, 10000)    
+      
+      //to stop an interval use
+
+      clearInterval(interval); //also check 12-rock-paper-scissors html/css/js
+
+*/
+
+//.forEach() function for modifying elements of an array. What for each does is that it takes each element of an array and performs any operation or function specified as parameters e.g
+
+['cook',
+  'clean',
+  'wash'
+].forEach(function(value, index){
+  console.log(value, index);
+})
+
+//so for each value in the array it passes the value to the function which prints it on the console
+
+//in simple terms it returns each value to a function specified as it's parameter and can also display index ig
+  </script>
+</body>
+</html>
