@@ -1,0 +1,39 @@
+body{
+  font-family: arial;
+}
+
+.delbtn{
+padding: 11px;
+  border-style: none;
+  background-color: rgb(181, 6, 6);
+  color: white;
+  font-weight: bold;
+}
+
+.input1, .input2{
+  padding: 8px;
+}
+
+.addbtn{
+  padding: 11px;
+  border-style: none;
+  background-color: rgb(6, 181, 38);
+  color: white;
+  font-weight: bold;
+
+}
+
+.display-js, .input-div{
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  gap: 20px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.display-js{
+  background-color: rgb(193, 235, 255);
+  border-radius: 20px;
+  box-shadow: cornflowerblue rgba(1, 1, 1);
+}
+

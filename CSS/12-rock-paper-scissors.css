@@ -1,0 +1,46 @@
+body{
+  background-color: black;
+  color: white;
+  font-family: arial;
+}
+
+.optbtn-con-js{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        width: 70%;
+        max-width: 450px;
+
+      }
+
+     .optbtn-js{
+      border-style: solid;
+      border-color: rgb(238, 237, 237);
+       background-color: black;
+      width: 80%;
+      padding: 30px 25px;
+      border-radius: 70px;
+      cursor: pointer;
+      margin-bottom: 40px;
+     }
+
+     .optimg-js{
+      object-fit: contain;
+      width: 80%;
+      max-width: 90%;
+
+     }
+
+     .move-js{
+        width: 10%;
+        max-width: 15%;
+      }
+
+      .res-js,.autoplay{
+        background-color: white;
+        border-style: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-weight: bold;
+  
+  }
